@@ -2785,18 +2785,18 @@ MonoBehaviour:
   _TrainingTimer: {fileID: 913540208}
   _RaidTimerImg: {fileID: 865914872}
   _SettlerTimerImg: {fileID: 59193349}
-  _WarriorTimerImg: {fileID: 1120550006}
+  _WarriorTimerImg: {fileID: 1527487092}
   _settlersButton: {fileID: 1981713328}
   _warriorsButton: {fileID: 1739116961}
   _resoursesText: {fileID: 523629525}
   _raidText: {fileID: 1714112048}
   _LoseText: {fileID: 742080541}
-  _settlerCount: 3
+  _settlerCount: 4
   _warriorCount: 0
   _foodCount: 10
   _foodPerSettlers: 2
   _foodToWarrior: 4
-  _settlerCost: 4
+  _settlerCost: 5
   _warriorCost: 8
   _settlerCreateTime: 6
   _warriorCreateTime: 7
@@ -3420,97 +3420,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: -49.99997}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!1 &1120550003
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1120550004}
-  - component: {fileID: 1120550007}
-  - component: {fileID: 1120550006}
-  - component: {fileID: 1120550005}
-  m_Layer: 5
-  m_Name: WarriorTimer
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!224 &1120550004
-RectTransform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1120550003}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.9538578, y: 0.9559053, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 1122782199}
-  m_RootOrder: 5
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 1284.7, y: -628}
-  m_SizeDelta: {x: 143.11, y: 143.27}
-  m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &1120550005
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1120550003}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c473d3bf40a27c24d9147492ae018863, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  maxTime: -1
-  Tick: 0
---- !u!114 &1120550006
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1120550003}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Material: {fileID: 0}
-  m_Color: {r: 0.630785, g: 0.990566, b: 0.672674, a: 1}
-  m_RaycastTarget: 1
-  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
-  m_Maskable: 1
-  m_OnCullStateChanged:
-    m_PersistentCalls:
-      m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 5b226a3a9df23b74eba929283307f18c, type: 3}
-  m_Type: 3
-  m_PreserveAspect: 0
-  m_FillCenter: 1
-  m_FillMethod: 4
-  m_FillAmount: 1
-  m_FillClockwise: 1
-  m_FillOrigin: 2
-  m_UseSpriteMesh: 0
-  m_PixelsPerUnitMultiplier: 1
---- !u!222 &1120550007
-CanvasRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1120550003}
-  m_CullTransparentMesh: 1
 --- !u!1 &1122782198
 GameObject:
   m_ObjectHideFlags: 0
@@ -3544,7 +3453,7 @@ RectTransform:
   - {fileID: 945220416}
   - {fileID: 59193348}
   - {fileID: 1190189979}
-  - {fileID: 1120550004}
+  - {fileID: 1527487090}
   m_Father: {fileID: 178612553}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -4973,6 +4882,97 @@ RectTransform:
   m_AnchoredPosition: {x: 428, y: 105.18}
   m_SizeDelta: {x: 264.08, y: 310.36}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!1 &1527487089
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1527487090}
+  - component: {fileID: 1527487093}
+  - component: {fileID: 1527487092}
+  - component: {fileID: 1527487091}
+  m_Layer: 5
+  m_Name: FarmerTimer (1)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1527487090
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1527487089}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 0.9538578, y: 0.9559053, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1122782199}
+  m_RootOrder: 5
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 1286.4, y: -625}
+  m_SizeDelta: {x: 139.7269, y: 138.0954}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1527487091
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1527487089}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c473d3bf40a27c24d9147492ae018863, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxTime: -1
+  Tick: 0
+--- !u!114 &1527487092
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1527487089}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 0.630785, g: 0.990566, b: 0.672674, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: 21300000, guid: 5b226a3a9df23b74eba929283307f18c, type: 3}
+  m_Type: 3
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 2
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
+--- !u!222 &1527487093
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1527487089}
+  m_CullTransparentMesh: 1
 --- !u!1 &1549287071
 GameObject:
   m_ObjectHideFlags: 0
@@ -5889,11 +5889,10 @@ MonoBehaviour:
       m_Calls: []
   m_text: 'Warriors:
 
-    
+
 
     Settlers:
 
-    
 
     Ed. of food:'
   m_isRightToLeft: 0

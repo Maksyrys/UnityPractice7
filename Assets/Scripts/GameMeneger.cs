@@ -58,95 +58,31 @@ public class GameMeneger : MonoBehaviour
 
     void Update()
     {
-        raidTimer -= Time.deltaTime;
-        _RaidTimerImg.fillAmount = raidTimer / _raidMaxTime;
+        SettlersActiveButton();
+        WarriorsActiveButton();
 
-        if(raidTimer <= 0) 
-        {
-            
-            raidTimer = _raidMaxTime;
-            raidcount += 1;
-         
-            if (raidcount > 3)
-            {
-                _warriorCount -= _nextRaid;
-                _nextRaid += _raidIncrease;
-                SoundToButtons.RaidStartSoundPlay();
-            }
-        }
-
-        if(_HarvestTimer.Tick)
-        {
-            _foodCount += _settlerCount * _foodPerSettlers;
-            SoundToButtons.HarvesingSoundPlay();
-        }
-
-        if(_TrainingTimer.Tick)
-        {
-            _foodCount -= _warriorCount * _foodToWarrior;
-            SoundToButtons.TrainingSoundPlay();
-        }
-
-        if (settlerTimer > 0)
-        {
-            settlerTimer -= Time.deltaTime;
-            _SettlerTimerImg.fillAmount = settlerTimer / _settlerCreateTime;
-          
-        }
-        else if (settlerTimer > -1)
-        {
-            _SettlerTimerImg.fillAmount = 1;
-            _settlersButton.interactable = true;
-            _settlerCount += 1;
-            settlerTimer = -2;
-            SoundToButtons.AddSettlerSoundPlay();
-        }
-
-        if (warriorTimer > 0)
-        {
-            warriorTimer -= Time.deltaTime;
-            _WarriorTimerImg.fillAmount = warriorTimer / _warriorCreateTime;
-        }
-        else if (warriorTimer > -1)
-        {
-            _WarriorTimerImg.fillAmount = 1;
-            _warriorsButton.interactable = true;
-            _warriorCount += 1;
-            warriorTimer = -2;
-            SoundToButtons.AddWarriorSoundPlay();
-        }
-
+        RaidActive();
+        TicksTimer();
         UpdateText();
-
-        if(_warriorCount < 0)
-        {
-            Time.timeScale = 0;
-            GameOverPanel.SetActive(true);
-            LoseFinalText();
-        }
-        
-        if(_settlerCount == 100 || _foodCount >= 500)
-        {
-            Time.timeScale = 0;
-            WinScreen.SetActive(true);
-        }
-
-        
-
+        LoseOrWinScreen();
+        ButtonActive();
     }
 
     public void CreateSettler()
     {
+        
         if (_foodCount > _settlerCost)
         {
             _foodCount -= _settlerCost;
-            settlerTimer =  _settlerCreateTime;
+            settlerTimer = _settlerCreateTime;
             _settlersButton.interactable = false;
+
         }
-        else if(_foodCount < _settlerCost)
+        else if (_foodCount < _settlerCost)
         {
             _settlersButton.interactable = false;
         }
+
 
     }
 
@@ -172,16 +108,107 @@ public class GameMeneger : MonoBehaviour
 
     public void LoseFinalText()
     {
-        _LoseText.text = raidcount + "            " +(Mathf.Round(Time.time)).ToString() + "            "+ _foodCount;
+        _LoseText.text = raidcount + "            " + (Mathf.Round(Time.time)).ToString() + "            " + _foodCount;
     }
 
- 
 
-    public void RestartButton()
+    private void LoseOrWinScreen()
     {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
-        GameOverPanel.SetActive(false);
-        Time.timeScale = 1.0f;
-        UpdateText();
+        if (_warriorCount < 0)
+        {
+            Time.timeScale = 0;
+            GameOverPanel.SetActive(true);
+            LoseFinalText();
+        }
+
+        if (_settlerCount == 100 || _foodCount >= 500)
+        {
+            Time.timeScale = 0;
+            WinScreen.SetActive(true);
+        }
     }
+
+    private void SettlersActiveButton()
+    {
+        if (settlerTimer > 0)
+        {
+            settlerTimer -= Time.deltaTime;
+            _SettlerTimerImg.fillAmount = settlerTimer / _settlerCreateTime;
+
+        }
+        else if (settlerTimer > -1)
+        {
+            _SettlerTimerImg.fillAmount = 1;
+            _settlersButton.interactable = true;
+            _settlerCount += 1;
+            settlerTimer = -2;
+            SoundToButtons.AddSettlerSoundPlay();
+        }
+    }
+
+    private void WarriorsActiveButton()
+    {
+
+        if (warriorTimer > 0)
+        {
+            warriorTimer -= Time.deltaTime;
+            _WarriorTimerImg.fillAmount = warriorTimer / _warriorCreateTime;
+        }
+        else if (warriorTimer > -1)
+        {
+            _WarriorTimerImg.fillAmount = 1;
+            _warriorsButton.interactable = true;
+            _warriorCount += 1;
+            warriorTimer = -2;
+            SoundToButtons.AddWarriorSoundPlay();
+        }
+    }
+
+    private void RaidActive()
+    {
+        raidTimer -= Time.deltaTime;
+        _RaidTimerImg.fillAmount = raidTimer / _raidMaxTime;
+
+        if (raidTimer <= 0)
+        {
+
+            raidTimer = _raidMaxTime;
+            raidcount += 1;
+
+            if (raidcount > 3)
+            {
+                _warriorCount -= _nextRaid;
+                _nextRaid += _raidIncrease;
+                SoundToButtons.RaidStartSoundPlay();
+            }
+        }
+    }
+
+    private void TicksTimer()
+    {
+        if (_HarvestTimer.Tick)
+        {
+            _foodCount += _settlerCount * _foodPerSettlers;
+            SoundToButtons.HarvesingSoundPlay();
+        }
+
+        if (_TrainingTimer.Tick)
+        {
+            _foodCount -= _warriorCount * _foodToWarrior;
+            SoundToButtons.TrainingSoundPlay();
+        }
+    }
+
+    private void ButtonActive()
+    {
+        if (_foodCount >= _settlerCost && !_settlersButton.interactable && settlerTimer <= 0)
+        {
+            _settlersButton.interactable = true;
+        }
+        if (_foodCount >= _warriorCost && !_warriorsButton.interactable && warriorTimer <= 0)
+        {
+            _warriorsButton.interactable = true;
+        }
+    }
+
 }
